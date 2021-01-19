@@ -1,56 +1,19 @@
 package com.company;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-public class TouristTicket {
-    private String pnr;
-    private String from;
-    private String to;
-    private Flight flight;
-    private String departureDateTime;
-    private String arrivalDateTime;
-    private Passenger passenger;
-    private String seatNo;
-    private float price;
-    private boolean isCancelled;
+public class TouristTicket extends Ticket {
     private String hotelAddress;
     private String[] selectedTouristLocations;
 
     public TouristTicket(String pnr, String from, String to, Flight flight, String departureDateTime,
                          String arrivalDateTime, Passenger passenger, String seatNo, float price,
                          String hotelAddress) {
-        this.pnr = pnr;
-        this.from = from;
-        this.to = to;
-        this.flight = flight;
-        this.departureDateTime = departureDateTime;
-        this.arrivalDateTime = arrivalDateTime;
-        this.passenger = passenger;
-        this.seatNo = seatNo;
-        this.price = price;
+        super(pnr, from, to, flight, departureDateTime, arrivalDateTime, passenger, seatNo, price);
         this.hotelAddress = hotelAddress;
         this.selectedTouristLocations = new String[5];
         flight.incrementBookingCounter();
     }
 
-    public String checkStatus() {
-        return isCancelled ? "Cancelled" : "Confirmed";
-    }
-
-    public void cancel() {
-        isCancelled = true;
-    }
-
-    public int getFlightDuration() throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-        Date d1 = sdf.parse(departureDateTime);
-        Date d2 = sdf.parse(arrivalDateTime);
-        return (int)((d2.getTime()-d1.getTime())/1000L);
-    }
-
-    public String getHotelAddress(){
+    public String getHotelAddress() {
         return hotelAddress;
     }
 
@@ -58,63 +21,34 @@ public class TouristTicket {
         return selectedTouristLocations;
     }
 
-    public void addTouristLocation(String location){
+    public void addTouristLocation(String location) {
         int i;
-        for(i=0;i<5;i++){
-            if(selectedTouristLocations[i]==null){
-                selectedTouristLocations[i]=location;
+        for (i = 0; i < 5; i++) {
+            if (selectedTouristLocations[i] == null) {
+                selectedTouristLocations[i] = location;
                 break;
             }
         }
-        if(i==5){
+        if (i == 5) {
             System.out.println("Cannot add more than 5 locations!");
-        }
-        else{
-            System.out.println("Location added successfully!");
+        } else {
+            System.out.println(location+" added successfully!");
         }
     }
 
-    public void removeTouristLocation(String location){
+    public void removeTouristLocation(String location) {
         int i;
-        for(i=0;i<5;i++){
-            if(selectedTouristLocations[i]!=null && selectedTouristLocations[i].equals(location)){
-                selectedTouristLocations[i]=null;
+        for (i = 0; i < 5; i++) {
+            if (selectedTouristLocations[i] != null && selectedTouristLocations[i].equals(location)) {
+                selectedTouristLocations[i] = null;
                 break;
             }
         }
-        if(i==5){
-            System.out.println("Location not added previously!");
+        if (i == 5) {
+            System.out.println(location+" not added previously!");
+        } else {
+            System.out.println(location+" removed successfully!");
         }
-        else{
-            System.out.println("Location removed successfully!");
-        }
     }
 
-    public String getPnr() {
-        return pnr;
-    }
-
-    public String getFrom() {
-        return from;
-    }
-
-    public String getTo() {
-        return to;
-    }
-
-    public String getDepartureDateTime() {
-        return departureDateTime;
-    }
-
-    public String getArrivalDateTime() {
-        return arrivalDateTime;
-    }
-
-    public String getSeatNo() {
-        return seatNo;
-    }
-
-    public float getPrice() {
-        return price;
-    }
 }

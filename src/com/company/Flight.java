@@ -1,9 +1,9 @@
 package com.company;
 
 public class Flight {
-    private final String flightNumber;
-    private final String airline;
-    private final int capacity;
+    private String flightNumber;
+    private String airline;
+    private int capacity;
     private int bookedSeats;
 
     public Flight(String flightNumber, String airline, int capacity) {
@@ -13,13 +13,15 @@ public class Flight {
         this.bookedSeats = 0;
     }
 
-    public String getFlightDetails(){
-        return flightNumber+" "+airline;
+    public String getFlightDetails() {
+        return flightNumber + " " + airline;
     }
-    public boolean checkAvailability(){
-        return bookedSeats<capacity;
+
+    public boolean checkAvailability() {
+        return bookedSeats < capacity;
     }
-    public void incrementBookingCounter(){
+
+    public void incrementBookingCounter() {
         bookedSeats++;
     }
 

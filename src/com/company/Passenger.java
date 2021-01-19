@@ -68,7 +68,7 @@ public class Passenger {
         this.contact = new Contact(name, phone, email);
     }
 
-    public int getPassengerCount(){
+    public int getPassengerCount() {
         return idCounter;
     }
 }
