@@ -11,6 +11,7 @@ public class Flight {
         this.airline = airline;
         this.capacity = capacity;
         this.bookedSeats = 0;
+        System.out.println("New flight " + flightNumber + " is added to the airline " + airline);
     }
 
     public String getFlightDetails() {

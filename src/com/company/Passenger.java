@@ -66,9 +66,18 @@ public class Passenger {
         this.id = ++idCounter;
         this.address = new Address(street, city, state);
         this.contact = new Contact(name, phone, email);
+        System.out.println("Thanks for registering with us " + name);
     }
 
     public int getPassengerCount() {
         return idCounter;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public Contact getContact() {
+        return contact;
     }
 }

@@ -8,7 +8,7 @@ public class RegularTicket extends Ticket {
                          String specialServices) {
         super(pnr, from, to, flight, departureDateTime, arrivalDateTime, passenger, seatNo, price);
         this.specialServices = specialServices;
-        flight.incrementBookingCounter();
+        System.out.println("You will also get our special services: " + specialServices);
     }
 
     public String getSpecialServices() {

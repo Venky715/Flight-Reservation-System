@@ -19,6 +19,11 @@ public abstract class Ticket {
 
     public Ticket(String pnr, String from, String to, Flight flight, String departureDateTime,
                   String arrivalDateTime, Passenger passenger, String seatNo, float price) {
+        // creates a ticket only when flight is not full
+        if (!flight.checkAvailability()) {
+            System.out.println("Ticket cannot be booked as flight is full!");
+            return;
+        }
         this.pnr = pnr;
         this.from = from;
         this.to = to;
@@ -28,6 +33,8 @@ public abstract class Ticket {
         this.passenger = passenger;
         this.seatNo = seatNo;
         this.price = price;
+        flight.incrementBookingCounter();
+        System.out.println("Thanks for booking a ticket with us. Have a nice journey!");
     }
 
     public String checkStatus() {
@@ -36,9 +43,10 @@ public abstract class Ticket {
 
     public void cancel() {
         isCancelled = true;
+        System.out.println("Ticket Cancelled successfully");
     }
 
-
+    // returns flight duration in number of seconds by subtracting departure time from arrival time
     public int getFlightDuration() throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         Date d1 = sdf.parse(departureDateTime);

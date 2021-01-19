@@ -10,7 +10,7 @@ public class TouristTicket extends Ticket {
         super(pnr, from, to, flight, departureDateTime, arrivalDateTime, passenger, seatNo, price);
         this.hotelAddress = hotelAddress;
         this.selectedTouristLocations = new String[5];
-        flight.incrementBookingCounter();
+        System.out.println("Hope you enjoy our tourist services.");
     }
 
     public String getHotelAddress() {
@@ -30,9 +30,9 @@ public class TouristTicket extends Ticket {
             }
         }
         if (i == 5) {
-            System.out.println("Cannot add more than 5 locations!");
+            System.out.println("Cannot add more than 5 tourist locations!");
         } else {
-            System.out.println(location+" added successfully!");
+            System.out.println(location + " added successfully to tourist locations!");
         }
     }
 
@@ -45,9 +45,9 @@ public class TouristTicket extends Ticket {
             }
         }
         if (i == 5) {
-            System.out.println(location+" not added previously!");
+            System.out.println(location + " not added previously!");
         } else {
-            System.out.println(location+" removed successfully!");
+            System.out.println(location + " removed successfully!");
         }
     }
 
