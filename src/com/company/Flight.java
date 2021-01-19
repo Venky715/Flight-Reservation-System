@@ -22,4 +22,20 @@ public class Flight {
     public void incrementBookingCounter(){
         bookedSeats++;
     }
+
+    public String getFlightNumber() {
+        return flightNumber;
+    }
+
+    public String getAirline() {
+        return airline;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getBookedSeats() {
+        return bookedSeats;
+    }
 }

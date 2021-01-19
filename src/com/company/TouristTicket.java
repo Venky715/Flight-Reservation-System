@@ -89,4 +89,32 @@ public class TouristTicket {
             System.out.println("Location removed successfully!");
         }
     }
+
+    public String getPnr() {
+        return pnr;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public String getDepartureDateTime() {
+        return departureDateTime;
+    }
+
+    public String getArrivalDateTime() {
+        return arrivalDateTime;
+    }
+
+    public String getSeatNo() {
+        return seatNo;
+    }
+
+    public float getPrice() {
+        return price;
+    }
 }

@@ -55,4 +55,32 @@ public class RegularTicket {
     public void updateSpecialServices(String specialServices) {
         this.specialServices = specialServices;
     }
+
+    public String getPnr() {
+        return pnr;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public String getDepartureDateTime() {
+        return departureDateTime;
+    }
+
+    public String getArrivalDateTime() {
+        return arrivalDateTime;
+    }
+
+    public String getSeatNo() {
+        return seatNo;
+    }
+
+    public float getPrice() {
+        return price;
+    }
 }
